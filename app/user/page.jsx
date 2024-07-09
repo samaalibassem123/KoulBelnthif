@@ -1,13 +1,9 @@
-"use client";
-import { useUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
+import { currentUser } from "@clerk/nextjs/server";
 
-export default function page() {
-  const { isSignedIn, user } = useUser();
-
-  if (isSignedIn) {
+export default async function page() {
+  const user = await currentUser();
+  if (user) {
     redirect("/user/" + user.id);
-  } else {
-    redirect("/signin");
   }
 }
