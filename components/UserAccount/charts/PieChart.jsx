@@ -2,7 +2,7 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 import { Chart } from "chart.js/auto";
-import { ChartDataAchived } from "../data/data";
+import { ChartDataAchived } from "../../../data/data";
 export default function PieChart() {
   const chartRef = useRef(null);
 
@@ -17,7 +17,7 @@ export default function PieChart() {
       type: "doughnut",
 
       data: {
-        labels: ["Calories", "Carbs", "Proteins"],
+        labels: ["Fat per g", "Carbs per g", "Proteins per g"],
         datasets: [
           {
             labels: "Info",

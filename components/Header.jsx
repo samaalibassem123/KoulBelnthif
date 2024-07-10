@@ -5,17 +5,20 @@ import {
   useUser,
   SignOutButton,
 } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
+import Calories from "./Calories";
 
 export default function Header() {
   const { isSignedIn, user } = useUser();
   return (
-    <div className="h-[100px] w-full p-5 bg-transparent text-xl font-semibold select-none ">
+    <div className="h-fit sticky top-0 bg-[#F59E0B] w-full p-5  shadow-md text-xl font-semibold select-none ">
       {isSignedIn ? (
         <div className="flex justify-between items-center gap-3">
           <div className="flex items-center gap-5">
             <UserButton />
-            <p className="text-3xl ">{user.username}</p>
+            <p className="lg:text-3xl text-md ">{user.username}</p>
+          </div>
+          <div className="lg:block hidden">
+            <Calories />
           </div>
 
           <SignOutButton>

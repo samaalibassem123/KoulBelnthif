@@ -28,7 +28,7 @@ export default function Counters({ value, text, unit, color }) {
         {text}
       </motion.p>
 
-      <motion.p variants={animateCard} className="text-4xl text-white ">
+      <motion.p variants={animateCard} className="text-4xl text-white">
         <AnimatedNumber
           value={value}
           startValue={0}
