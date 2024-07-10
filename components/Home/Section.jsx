@@ -1,6 +1,8 @@
 import { SignUpButton } from "@clerk/nextjs";
 import { motion } from "framer-motion";
-
+import { useUser } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
+import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import Statics from "./Statics";
 
 const AnimateHome = {
@@ -17,6 +19,7 @@ const AnimateHome = {
 };
 
 export default function Section() {
+  const { isSignedIn, user } = useUser();
   return (
     <motion.section
       className="flex justify-around gap-4  w-full lg:flex-row flex-col lg:p-2 p-1"
@@ -43,7 +46,17 @@ export default function Section() {
             variants={AnimateHome}
             className="bg-white font-semibold p-5 text-5xl rounded-xl w-fit hover:bg-slate-300 transition-all"
           >
-            Sign-up Here !
+            {isSignedIn ? (
+              <div
+                className="flex items-center gap-3"
+                onClick={() => redirect("/user/" + user.id)}
+              >
+                Return To Dashboard
+                <FaRegArrowAltCircleRight />
+              </div>
+            ) : (
+              "Sign-up Here !"
+            )}
           </motion.button>
         </SignUpButton>
       </motion.div>

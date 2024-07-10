@@ -5,6 +5,7 @@ import {
   useUser,
   SignOutButton,
 } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
 export default function Header() {
   const { isSignedIn, user } = useUser();
@@ -18,7 +19,10 @@ export default function Header() {
           </div>
 
           <SignOutButton>
-            <button className="border-[2px] border-black p-2 rounded-xl text-white bg-black">
+            <button
+              className="border-[2px] border-black p-3 rounded-xl text-white bg-black hover:bg-black/50 transition-all ease-in-out"
+              onClick={() => redirect("/")}
+            >
               Sign-out
             </button>
           </SignOutButton>
