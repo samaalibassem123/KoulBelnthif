@@ -1,9 +1,15 @@
-import { redirect } from "next/navigation";
-import { currentUser } from "@clerk/nextjs/server";
+import Header from "@/components/Header";
+import Dashboard from "@/components/UserAccount/Dashboard/Dashboard";
+import FormInfo from "@/components/UserAccount/Formulaire/FormInfo";
+import FormFood from "@/components/UserAccount/Formulaire/FormFood";
 
-export default async function page() {
-  const user = await currentUser();
-  if (user) {
-    redirect("/user/" + user.id);
-  }
+export default function page() {
+  return (
+    <main className="flex flex-col items-center">
+      <Header />
+      <Dashboard />
+      <FormInfo />
+      <FormFood />
+    </main>
+  );
 }
