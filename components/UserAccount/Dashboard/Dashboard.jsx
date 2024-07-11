@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import Counters from "../Counters";
 import { StatData } from "@/data/data";

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import AnimatedNumber from "numbers-animation-react";
-import { delay, motion } from "framer-motion";
+import { motion } from "framer-motion";
 const animateCard = {
   hidden: {
     opacity: 0,

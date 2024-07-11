@@ -1,16 +1,12 @@
 "use client";
-import {
-  SignInButton,
-  UserButton,
-  useUser,
-  SignOutButton,
-} from "@clerk/nextjs";
+import { SignInButton, UserButton, useUser, useClerk } from "@clerk/nextjs";
 import Calories from "./Calories";
 
 export default function Header() {
   const { isSignedIn, user } = useUser();
+  const { signOut } = useClerk();
   return (
-    <div className="h-fit sticky top-0 bg-[#F59E0B] w-full p-5  shadow-md text-xl font-semibold select-none ">
+    <div className=" z-10 h-fit sticky top-0 bg-[#F59E0B] w-full p-5  shadow-md text-xl font-semibold select-none ">
       {isSignedIn ? (
         <div className="flex justify-between items-center gap-3">
           <div className="flex items-center gap-5">
@@ -21,11 +17,14 @@ export default function Header() {
             <Calories />
           </div>
 
-          <SignOutButton>
-            <button className="border-[2px] border-black p-3 rounded-xl text-white bg-black hover:bg-black/50 transition-all ease-in-out">
-              Sign-out
-            </button>
-          </SignOutButton>
+          <button
+            onClick={() => signOut({ redirectUrl: "http://localhost:3000" })}
+            className="border-[2px] border-black p-3 rounded-xl text-white
+            bg-black hover:bg-black/50 transition-all ease-in-out"
+          >
+            {" "}
+            Sign-out
+          </button>
         </div>
       ) : (
         <SignInButton>

@@ -1,3 +1,4 @@
+"use client";
 import AnimatedNumber from "numbers-animation-react";
 export default function Statics({ description, unit, value }) {
   return (
