@@ -18,7 +18,7 @@ export default function Header() {
           </div>
 
           <button
-            onClick={() => signOut({ redirectUrl: "http://localhost:3000" })}
+            onClick={() => signOut({ redirectUrl: "/" })}
             className="border-[2px] border-black p-3 rounded-xl text-white
             bg-black hover:bg-black/50 transition-all ease-in-out"
           >
